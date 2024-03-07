@@ -27,4 +27,6 @@ def parse(path):
 
 c, A, b = parse('Datos/Datos5_2.txt')
 
-print(c[[1, 7]])
+l = np.c_[np.full(10, 0), A]
+
+

@@ -6,46 +6,50 @@ class Simplex:
 
     def __init__(self, c, A, b) -> None:
     
-        self.__c = c
-        self.__A = A
-        self.__b = b
+        self._m = A.shape[0]; self._n = A.shape[1]
+        self._c = np.insert(c, 0, None)
+        self._A = np.c_[np.full(self.__m, None), A]
+        self._b = b
 
-        self.__m = A.shape[0]; self.__n = A.shape[1]
-        self.__dB = np.zeros(self.__m, dtype=int); self.__dN = np.zeros(self.__n - self.__m, dtype=int)
+        self._dB = np.zeros(self._m, dtype=int); self._dN = np.zeros(self._n - self._m, dtype=int)
 
-    def __isoptimal(self):
-        pass
+    def _isoptimal(self):
+        
+        self._r_N = self._c_N - self._c_B
     
-    def __get_direction(self):
+    def _get_direction(self):
         pass
 
-    def __get_theta(self):
+    def _get_theta(self):
         pass
 
-    def __update_values(self):
+    def _update_values(self):
+        pass
+
+    def _update_inverse(self):
         pass
 
     def solve(self, __fase1 = False):
 
         #1. Find initial Basic Feasible Solution
         if not __fase1:
-            self.__i_B, self.__i_N = self.__fase_1() 
+            self._i_B, self._i_N = self.__fase_1() 
         else:
-            self.__i_N, self.__i_B = np.arange(1 , self.__n - self.__m + 1), np.arange(self.__n - self.__m, self._n + 1)
+            self._i_N, self._i_B = np.arange(1 , self._n - self._m + 1), np.arange(self._n - self._m, self._n + 1)
 
-        B, c_B = A[self.__i_B], c[self.__i_B]
-        A_N, c_N = A[self.__i_N], c[self.__i_N]
+        self._B, self._c_B = A[self._i_B], c[self._i_B]
+        self._A_N, self._c_N = A[self._i_N], c[self._i_N]
         
         #2. BFS optimal or choose entry variable
 
-    def __fase_1(self):
+    def _fase_1(self):
         
-        c = np.append(np.zeros(self.__n, dtype=int), np.ones(self.__m, dtype=int))
+        c = np.append(np.zeros(self._n, dtype=int), np.ones(self._m, dtype=int))
 
-        identity_matrix = np.eye(self.__m)
-        A = np.hstack((self.__A, identity_matrix))
+        identity_matrix = np.eye(self._m)
+        A = np.hstack((self._A, identity_matrix))
 
-        b = self.__b
+        b = self._b
 
         i_b, i_n = Simplex().solve(c, A, b, __fase1 = True)
 
