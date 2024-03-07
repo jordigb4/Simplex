@@ -26,3 +26,5 @@ def parse(path):
     return [np.array(variables['c']), np.matrix(variables['A']), np.array(variables['b'])]
 
 c, A, b = parse('Datos/Datos5_2.txt')
+
+print(c[[1, 7]])
