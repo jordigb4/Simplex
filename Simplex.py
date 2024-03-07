@@ -4,8 +4,8 @@ from Parser import parse
 
 class Simplex:
 
-    def __init__(self, c, A, b, __fase1 = False) -> None:
-        self.__fase1 = __fase1
+    def __init__(self, c, A, b) -> None:
+    
         self.__c = c
         self.__A = A
         self.__b = b
@@ -25,10 +25,10 @@ class Simplex:
     def __update_values(self):
         pass
 
-    def solve(self):
+    def solve(self, __fase1 = False):
 
         #1. Find initial Basic Feasible Solution
-        if not self.fase_1:
+        if not __fase1:
             self.__i_B, self.__i_N = self.__fase_1() 
         else:
             self.__i_N, self.__i_B = np.arange(1 , self.__n - self.__m + 1), np.arange(self.__n - self.__m, self._n + 1)
