@@ -27,6 +27,13 @@ def parse(path):
 
 c, A, b = parse('Datos/Datos5_2.txt')
 
+'''theta = float('inf')
+        for i in negative_directions.sort():
+            quocient =  -self._x_B[i] / d_B[i]
+            if quocient < theta:
+                theta = quocient
+                p = i'''
+
 
 
 
