@@ -29,3 +29,4 @@ c, A, b = parse('Datos/Datos5_2.txt')
 
 
 
+

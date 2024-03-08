@@ -14,10 +14,9 @@ class Simplex:
 
     def _isoptimal(self):
         
-        print(self._A_N)
+        
         self._r = self._c_N - (self._c_B @ (self._B_inv @ self._A_N))
         
-        #print(self._A_N)
         if np.all(self._r >= 0):
             return True
         
@@ -33,7 +32,7 @@ class Simplex:
         
         self._d[self._i_B] = -self._B_inv @ np.asarray(self._A_N[:,self._q]).reshape(-1)
         self._d[self._q] = 1
-        
+    
         if np.all(self._d >= 0):
             raise Exception("The Problem is not bounded, it always can improve")
         
@@ -41,10 +40,12 @@ class Simplex:
         
         candidates = -self._x_B / self._d[self._i_B]
         self._theta, self._p = np.min(candidates), np.argmin(candidates)
+        #Aplicat Blund?
 
     def _update_values(self):
 
         self._i_B[self._p], self._i_N[self._q] = self._i_N[self._q], self._i_B[self._p]
+        self._i_N.sort()
 
         self._x_B[self._q] == 0
         self._x_B += (self._theta * self._d[self._i_B])
@@ -59,6 +60,7 @@ class Simplex:
         
         E = np.eye(self._m)
         d_B = self._d[self._i_B]
+        print(d_B)
         d_Bp = d_B[self._p]
         n_p = (d_B) / d_Bp
         n_p[self._p] = -1 / d_Bp
