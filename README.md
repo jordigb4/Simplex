@@ -5,7 +5,7 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://github.com/albertojc6/SIMPLEX">
+  <a href="https://github.com/albertojc6/Simplex">
     <img src="images/logo.png" alt="Logo" width="200" height="130">
   </a>
 
@@ -39,7 +39,7 @@
 
 This report is the justification for the solution proposed by the problem raised. This is, programming the algorithm of the primal simplicity, in order to solve a set of linear optimization problems.
 
-Among the objectives of the practice, the understanding of the operation of the simplex method stands out, as well as the theoretical concepts associated with linear programming. In our case, the chosen programming language has been Python. Despite not being a language intended for mathematics, its module Numpy allows you to perform numerical calculations efficiently.
+Among the objectives of the practice, the understanding of the operation of the simplex method stands out, as well as the theoretical concepts associated with linear programming. In our case, the chosen programming language has been Python. Despite not being a language intended for mathematics, its module Numpy allows us to perform numerical calculations efficiently.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -53,7 +53,6 @@ To get a local copy up and running follow these simple example steps.
 
 * Python
   ```sh
-  pip install nltk
   pip install numpy
   ```
 
@@ -61,7 +60,7 @@ To get a local copy up and running follow these simple example steps.
 
 1. Clone the repo
   ```sh
-  git clone https://github.com/jordigb4/Naive-Language-Classifier.git
+  git clone https://github.com/jordigb4/Simplex
   ```
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
