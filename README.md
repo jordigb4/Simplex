@@ -9,7 +9,7 @@
     <img src="images/logo.png" alt="Logo" width="200" height="130">
   </a>
 
-<h3 align="center">European Language Identifier</h3>
+<h3 align="center">Primal Simplex Algorithm</h3>
 </div>
 
 <!-- TABLE OF CONTENTS -->
@@ -37,9 +37,9 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-This is a project to develop a language identifier for the following European languages: English, Spanish, Dutch, German, Italian, and French. In this regard, the 'wortschatz leipzig corpora' has been utilized, consisting of 30k and 10k sentences for each language, for the training set and the test set, respectively. 
- 
-Its primary goal is academic, particulary introduce NLP concepts and tools while analyzing which text processing techniques are most effective for distinguishing languages. However, the project also has practical purposes, as language identification has wide-ranging applications in NLP. It serves as a foundational step in text classification tasks, aiding in the categorization of text based on language for subsequent analysis or processing. The task of language id is thus the first step in most language processing pipelines.
+This report is the justification for the solution proposed by the problem raised. This is, programming the algorithm of the primal simplicity, in order to solve a set of linear optimization problems.
+
+Among the objectives of the practice, the understanding of the operation of the simplex method stands out, as well as the theoretical concepts associated with linear programming. In our case, the chosen programming language has been Python. Despite not being a language intended for mathematics, its module Numpy allows you to perform numerical calculations efficiently.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
