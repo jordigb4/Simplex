@@ -34,6 +34,14 @@ c, A, b = parse('Datos/Datos5_2.txt')
                 theta = quocient
                 p = i'''
 
+'''candidates = -self._x_B[negative_directions] / d_B[negative_directions]
+        min_value = np.min(candidates)
+        if np.count_nonzero(candidates == min_value)>=2:
+            self._theta = np.min(candidates)
+            self._p = np.argmin(self._i_B[negative_directions])
+    
+        else:
 
+            self._theta, self._p = np.min(candidates), negative_directions[np.argmin(candidates)]'''
 
 

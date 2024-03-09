@@ -36,35 +36,26 @@ class Simplex:
 
     def _get_direction(self):
 
-        self._d = np.zeros(self._n, dtype=int)
-        print(f"S {'fase 1' if self.__fase1 else 'primal' }. I: {self.__iteration} B_inv is: {self._B_inv}")
-        print(f"S {'fase 1' if self.__fase1 else 'primal' }. I: {self.__iteration} A_N is: {self._A_N}")
-        
-        self._d[self._i_B] = -self._B_inv @ np.asarray(self._A_N[:,self._q]).reshape(-1)
-        self._d[self._i_N[self._q]] = 1
-    
-        print(f"S {'fase 1' if self.__fase1 else 'primal' }. I: {self.__iteration} d is: {self._d}")
-        if np.all(self._d >= 0):
+        self._d_B = -self._B_inv @ np.asarray(self._A_N[:,self._q]).reshape(-1)
+       
+        if np.all(self._d_B >= 0):
             raise Exception("The Problem is not bounded, it always can improve")
         
     def _get_theta(self):
         
-        d_B = self._d[self._i_B]
-        negative_directions = np.where(d_B < 0)[0]
-
-    
-        candidates = -self._x_B[negative_directions] / d_B[negative_directions]
-        min_value = np.min(candidates)
-        if np.count_nonzero(candidates == min_value)>=2:
-            self._theta = np.min(candidates)
-            self._p = np.argmin(self._i_B[negative_directions])
-    
-        else:
-
-            self._theta, self._p = np.min(candidates), negative_directions[np.argmin(candidates)]
-
-
-        #Aplicat Blund?
+        d_B = self._d_B
+        theta = float('inf'); p = None
+        for i, d_i in enumerate(d_B):   
+            if d_i < 0:
+                quocient =  -self._x_B[i] / d_i
+                if quocient == theta: #Regla de Blund
+                    p = p if self._i_B[p] < self._i_B[i] else i
+                elif quocient < theta:
+                    p = i
+                    theta = quocient
+                
+        self._theta = theta
+        self._p = p
 
     def _update_values(self):
 
@@ -72,25 +63,23 @@ class Simplex:
         self._i_B[self._p], self._i_N[self._q] = self._i_N[self._q], self._i_B[self._p]
         self._i_N.sort()
         
-        self._x_B[self._p] = 0
-        self._x_B += (self._theta * self._d[self._i_B])
+        self._x_B += (self._theta * self._d_B)
+        self._x_B[self._p] = self._theta
         
-
         self._A_N =  self._A[:,self._i_N]
         self._c_B, self._c_N = self._c[self._i_B], self._c[self._i_N]
 
-        self._z = self._c_B @ self._x_B 
+        self._z += self._theta * self._r[ :, self._q]
 
     def _update_inverse(self):
         
         E = np.eye(self._m)
-        d_B = self._d[self._i_B]
-        print(d_B)
+
+        d_B = self._d_B
         d_Bp = d_B[self._p]
-        print(d_Bp)
         n_p = (-d_B) / d_Bp
         n_p[self._p] = -1 / d_Bp
-        print(n_p)
+
         E[:, self._p] = n_p
         return (E @ self._B_inv)
         
