@@ -39,11 +39,9 @@ class Simplex:
         if np.all(self._r >= 0):
             return True
         
-        else:
-                
+        else: 
             negative_r = np.where(self._r < 0)[0]
             self._q = negative_r[0]  #considering that self.i_N is sorted (Blund)
-
             return False 
 
 
@@ -95,6 +93,10 @@ class Simplex:
 
         E[:, self._p] = n_p
         return (E @ self._B_inv)
+    
+    def _clean_phase1(self):
+
+        return np.all(self._i_B < self._n - self._m)
         
     def solve(self):
 
@@ -126,20 +128,15 @@ class Simplex:
             self._update_values()
             
         if self.__fase1:
-            print(self._z)
             if np.isclose(self._z, 0, atol=1e-10):
-                print((self._n, self._m))
-                if np.all(self._i_B < self._n - self._m):
-                    return self._i_B, self._B_inv
-                else:                 
-                    #Degenerated solution of Problem Phase1
-                    i_artificial = np.where(self._i_B >= self._n - self._m)[0]
-                    i_original = np.where(self._i_N < self._m)[0]
-                    for i in i_artificial:
-                        j = i_original.pop()
-                        self._i_B[i] = self._i_N[j]
-
-                    return self._i_B, self._B_inv
+                while self._isoptimal() and not self._clean_phase1():
+                    candidates = np.where(self._r == 0)[0]
+                    self._q = candidates[0]
+                    self._get_direction()
+                    self._get_theta()
+                    self._update_values()
+                return self._i_B, self._B_inv
+            
             #artificial variables take value at optimal
             raise Exception("The Problem is not feasible")
         print(self._z)
