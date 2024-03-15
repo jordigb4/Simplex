@@ -112,8 +112,8 @@ class Simplex:
             self._get_theta()
             #5. Update structures
             self._update_values()
-
             self._iteration +=1
+            
             with open(f"{self._debug_file}.txt", "a") as debug_file:
                 debug_file.write(f'Iteració {self._iteration}: p = {self._p}, q = {self._q}, B(p) = {self._i_B[self._p]}, theta* = {np.round(self._theta, 4)}, z = {np.round(self._z, 4)} \n')
 
@@ -128,7 +128,7 @@ class Simplex:
                     self._update_values()
                     self._iteration +=1
                 with open(f"{self._debug_file}.txt", "a") as debug_file:
-                debug_file.write(f'Iteració {self._iteration}: p = {self._p}, q = {self._q}, B(p) = {self._i_B[self._p]}, theta* = {np.round(self._theta, 4)}, z = {np.round(self._z, 4)} \n')
+                    debug_file.write(f'Iteració {self._iteration}: p = {self._p}, q = {self._q}, B(p) = {self._i_B[self._p]}, theta* = {np.round(self._theta, 4)}, z = {np.round(self._z, 4)} \n')
                 with open(f"{self._debug_file}.txt", "a") as debug_file:
                     debug_file.write(f'Solució bàsica factible trobada, iteració {self._iteration} \n')
                 return self._i_B, self._B_inv
