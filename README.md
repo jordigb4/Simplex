@@ -108,7 +108,7 @@ Don't forget to give the project a star! Thanks again!
 <!-- CONTACT -->
 ## Contact
 
-Jordi Granja Bayot - jordi.granja.i@estudiantat.upc.edu - @jordigb4
+Jordi Granja Bayot - jordi.granja.i@estudiantat.upc.edu - @jordigb4  
 Alberto Jerez Cubero - alberto.jerez@estudiantat.upc.edu - @albertojc6
 
 Project Link: [https://github.com/jordigb4/Simplex](https://github.com/jordigb4/Simplex)
