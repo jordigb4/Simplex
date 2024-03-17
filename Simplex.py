@@ -1,6 +1,4 @@
 import numpy as np
-from Parser import parse
-
 
 class Simplex:
 
@@ -227,7 +225,3 @@ class Simplex:
         phase1 =  Simplex(c, A, b, phase1 = True, debug_file = self._debug_file)
         i_b, B_inv = phase1.solve()
         return i_b, B_inv
-        
-c, A, b = parse('Datos/Datos5_1.txt')
-sim = Simplex(c, A, b, debug_file='Debug_Datos')
-sim.solve()
