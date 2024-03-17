@@ -121,10 +121,15 @@ class Simplex:
         return (E @ self._B_inv)
     
     def _clean_phase1(self):
+        """
+        Method to assert that all basic variables are from the orginal problem in phase 1
+        """
 
         return np.all(self._i_B < self._n - self._m)
         
     def solve(self):
+        """
+        """
 
         #1. Find initial Basic Feasible Solution
         if not self.__fase1:
@@ -137,8 +142,6 @@ class Simplex:
             self._i_N, self._i_B = np.arange(0 , self._n - self._m), np.arange(self._n - self._m, self._n)
             self._B = self._B_inv = np.eye(self._m)
 
-        
-            
         self._c_B, self._c_N = self._c[self._i_B], self._c[self._i_N]
         self._A_N  = self._A[:,self._i_N]
         self._x_B = self._B_inv @ b; self._x_N = np.zeros(self._n - self._m, dtype=int)
