@@ -30,7 +30,6 @@
     <li><a href="#repo-structures">Repository Structures</a></li>
     <li><a href="#contributing">Contributing</a></li>
     <li><a href="#contact">Contact</a></li>
-    <li><a href="#acknowledgments">Acknowledgments</a></li>
   </ol>
 </details>
 
@@ -69,17 +68,12 @@ To get a local copy up and running follow these simple example steps.
 ## Usage
 
 ```python
-from language_identifier import LanguageIdentifier
+from Simplex import Simplex
+from Parser import parse
 
-# Train classifier
-LangId = LanguageIdentifier()
-
-#Predict phrase or
-pred = LangId.identify_language('The classifier must be used like this', smoothing = 'Lidstone')
-#Predict valid text file
-pred = LangId.identify_language(f"corpora/eng_tst.txt", smoothing = 'Lidstone')
-
-print(pred)
+c, A, b = parse('Data/ProblemData1.txt')
+sim = Simplex(c, A, b, debug_file = 'Debug_ProblemData1')
+i_B, x_B = sim.solve()
 ```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -87,15 +81,10 @@ print(pred)
 ## Repository Structures
 
     .
-    ├── corpora                 # Train, val, and test corpora files (.txt)
-    ├── images                  # Resulting Confusion Matrices
-    ├── Preprocessing           # File with functions to treat raw corpora
-    ├── language_identifier     # MAIN file, with classifier model class
-    ├── test.ipynb              # Test language_identifier accuracy, both Lidstone and Abs. Discounting 
-    ├── wrong_classified.ipynb  # Obtain wrong classified phrases from test corpora
-    ├── all_wrong_*.csv         # Compilation of misclassified phrases
-    ├── foreign_languages.ipynb # Experiment to check potential model BIAS
-    ├── best_alpha.py           # Obtain best Lidstone parameter for data in corpora dir.
+    ├── Datos                 # Problem data examples
+    ├── images                # Project Logo
+    ├── Parser.py             # File with function to read linear problem data into numpy arrays
+    ├── Simplex.py            # MAIN file, with Simplex solver class
     └── README.md
 
 <p align="right">(<a href="#repo-structures">back to top</a>)</p>
@@ -119,17 +108,9 @@ Don't forget to give the project a star! Thanks again!
 <!-- CONTACT -->
 ## Contact
 
-Your Name - [@your_twitter](https://twitter.com/your_username) - email@example.com
+Jordi Granja Bayot - jordi.granja.i@estudiantat.upc.edu - @jordigb4
+Alberto Jerez Cubero - alberto.jerez@estudiantat.upc.edu - @albertojc6
 
-Project Link: [https://github.com/jordigb4/Naive-Language-Classifier](https://github.com/jordigb4/Naive-Language-Classifier)
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
-
-<!-- ACKNOWLEDGMENTS -->
-## Acknowledgments
-
-* [Naive Bayes Classifier Paper](https://web.stanford.edu/~jurafsky/slp3/)
+Project Link: [https://github.com/jordigb4/Simplex](https://github.com/jordigb4/Simplex)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
