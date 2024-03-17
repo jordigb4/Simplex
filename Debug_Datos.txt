@@ -1,0 +1,40 @@
+Inici simplex primal amb regla de Bland 
+Fase I
+Iteració 1: p = 8, q = 0, B(p) = 0, theta* = 2.3623, z = 2815.6522 
+Iteració 2: p = 3, q = 0, B(p) = 1, theta* = 2.9042, z = 2170.4205 
+Iteració 3: p = 7, q = 0, B(p) = 2, theta* = 1.3671, z = 2038.2375 
+Iteració 4: p = 7, q = 0, B(p) = 3, theta* = 1.5194, z = 1671.4689 
+Iteració 5: p = 1, q = 1, B(p) = 4, theta* = 0.3054, z = 1616.3918 
+Iteració 6: p = 9, q = 0, B(p) = 2, theta* = 1.3717, z = 1530.1201 
+Iteració 7: p = 9, q = 0, B(p) = 5, theta* = 1.3551, z = 884.6408 
+Iteració 8: p = 2, q = 2, B(p) = 7, theta* = 1.3056, z = 377.5854 
+Iteració 9: p = 5, q = 2, B(p) = 8, theta* = 0.2916, z = 374.6566 
+Iteració 10: p = 0, q = 3, B(p) = 10, theta* = 0.032, z = 314.4195 
+Iteració 11: p = 4, q = 0, B(p) = 2, theta* = 0.2809, z = 281.0379 
+Iteració 12: p = 5, q = 0, B(p) = 6, theta* = 0.3631, z = 226.9189 
+Iteració 13: p = 6, q = 2, B(p) = 11, theta* = 1.0282, z = -0.0 
+Iteració 13: p = 6, q = 2, B(p) = 11, theta* = 1.0282, z = -0.0 
+Solució bàsica factible trobada, iteració 13 
+Fase II 
+Iteració 1: p = 6, q = 2, B(p) = 12, theta* = 0.4261, z = -213.4977 
+Iteració 2: p = 4, q = 1, B(p) = 9, theta* = 0.8513, z = -292.4845 
+Iteració 3: p = 9, q = 1, B(p) = 8, theta* = 1.0185, z = -321.8674 
+Iteració 4: p = 3, q = 5, B(p) = 15, theta* = 143.2783, z = -336.6884 
+Iteració 5: p = 3, q = 7, B(p) = 17, theta* = 186.3821, z = -400.226 
+Iteració 6: p = 0, q = 1, B(p) = 2, theta* = 0.5642, z = -405.7172 
+Iteració 7: p = 0, q = 7, B(p) = 16, theta* = 57.9569, z = -421.0064 
+Iteració 8: p = 9, q = 8, B(p) = 18, theta* = 45.5164, z = -471.7779 
+Iteració 9: p = 0, q = 4, B(p) = 10, theta* = 0.1736, z = -485.0509 
+Iteració 10: p = 5, q = 0, B(p) = 1, theta* = 1.045, z = -496.8026 
+Iteració 11: p = 5, q = 5, B(p) = 13, theta* = 1.4635, z = -517.2099 
+Iteració 12: p = 6, q = 9, B(p) = 19, theta* = 165.5096, z = -551.509 
+Solució òptima trobada, iteració 12, z = -551.5090302059563 
+Fi simplex primal 
+
+Solució òptima: 
+
+vb = [10  4  7 17  9 13 19  3  0 18] 
+xb = [4.30000e-02 4.24200e+00 8.76000e-01 9.15351e+02 3.71000e+00 3.30500e+00
+ 1.65510e+02 3.27500e+00 6.50000e-02 2.36618e+02] 
+z = -551.5090302059563 
+r = [ 11.21  65.16  89.5   29.9  117.84 140.28  33.19   0.74   0.21   0.48]

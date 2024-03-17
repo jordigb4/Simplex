@@ -4,7 +4,10 @@ from Parser import parse
 
 class Simplex:
 
-    def __init__(self, c, A, b, fase1 = False, debug_file = 'debug') -> None:    
+    def __init__(self, c, A, b, fase1 = False, debug_file = 'debug'):
+        """
+        Initialize the data assocaited to an optimization problem
+        """
 
         self.__fase1 = fase1
         self._m = A.shape[0]; self._n = A.shape[1]
@@ -15,6 +18,13 @@ class Simplex:
         self._iteration = 0
 
     def _isoptimal(self):
+        """
+        Method to check if the basic feasible solution of a iteration is the optimal of the linear problem
+        
+        Pre-conditions: the working data is associated to a basic feasible solution
+
+        Post-conditions: returns True if reduced costs are >= 0; otherwise fixes entry variable and returns False
+        """
 
         self._r = self._c_N - (self._c_B @ (self._B_inv @ self._A_N))
         self._r = np.asarray(self._r).reshape(-1)
@@ -29,14 +39,32 @@ class Simplex:
 
 
     def _get_direction(self):
+        """
+        Method to caluclate a basic feasible direction, associated to entry variable x_q
+
+        Pre-conditions: local variable q can't be None or greater to (n-m)
+
+        Post-conditions: declares an array with resulting DBF coordinates for basic variables;
+                         if this array is >=0, the problem is not bounded and the program execution finishes
+        """
 
         self._d_B = -self._B_inv @ np.asarray(self._A_N[:,self._q]).reshape(-1)
        
         if np.all(self._d_B >= 0):
+
+            with open(f"{self._debug_file}.txt", "a") as debug_file:
+                debug_file.write(f'The Problem is not bounded, it always can improve\n')
             raise Exception("The Problem is not bounded, it always can improve")
         
     def _get_theta(self):
-        
+        """
+        Method to get the step length to reach the SBF that includes i_N[q] variable
+
+        Pre-conditions: some element of d_B must be negative
+
+        Post-conditions: declares the corresponding theta (step length) and exit variable associated
+        """
+
         d_B = self._d_B
         theta = float('inf'); p = None
         for i, d_i in enumerate(d_B):   
@@ -52,6 +80,13 @@ class Simplex:
         self._p = p
 
     def _update_values(self):
+        """
+        Method to make the necessary updates of resulting SBF
+
+        Pre-conditions: entry variable and DBF associated are calculated, also step length and its correponding exit variable
+        
+        Post-conditions: updates all variable related to a single SBF
+        """
 
         self._B_inv = self._update_inverse()
         self._i_B[self._p], self._i_N[self._q] = self._i_N[self._q], self._i_B[self._p]
@@ -67,6 +102,13 @@ class Simplex:
 
 
     def _update_inverse(self):
+        """
+        Method to update the basic's matrix inverse with reduced computational cost
+
+        Pre-conditions: basic's matrix inverse, DBF and entry variable declarated must be of the same and previous simplex iteration
+
+        Post-conditions: returns the inverse associated to the resulting SBF of the previous simplex iteration
+        """
         
         E = np.eye(self._m)
 
@@ -134,7 +176,9 @@ class Simplex:
                 return self._i_B, self._B_inv
             
             #artificial variables take value at optimal
-            raise Exception("The Problem is not feasible")
+            with open(f"{self._debug_file}.txt", "a") as debug_file:
+                    debug_file.write('The problem is not feasible, artificial variables take value at optimal\n')
+            raise Exception(f'The problem is not feasible')
         
         with open(f"{self._debug_file}.txt", "a") as debug_file:
                     debug_file.write(f'Solució òptima trobada, iteració {self._iteration}, z = {self._z} \n')
@@ -164,5 +208,5 @@ class Simplex:
         return i_b, B_inv
         
 c, A, b = parse('Datos/Datos5_1.txt')
-sim = Simplex(c, A, b, debug_file='Debug_Datos_5_1')
+sim = Simplex(c, A, b, debug_file='Debug_Datos')
 sim.solve()
