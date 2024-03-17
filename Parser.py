@@ -35,4 +35,3 @@ def parse(path):
                 variables[current_variable].extend(values)
 
     return np.array(variables['c']), np.matrix(variables['A']), np.array(variables['b'])
-

@@ -4,18 +4,20 @@ from Parser import parse
 
 class Simplex:
 
-    def __init__(self, c, A, b, fase1 = False, debug_file = 'debug'):
+    def __init__(self, c, A, b, phase1 = False, debug_file = 'debug'):
         """
         Initialize the data assocaited to an optimization problem
         """
+        self._phase1 = phase1
+        self._debug_file = debug_file
+        self._iteration = 0
 
-        self.__fase1 = fase1
         self._m = A.shape[0]; self._n = A.shape[1]
+        assert c.shape[0] == self._n and b.shape[0] == self._m, "Data dimensions are not correctly declared"
         self._c = c
         self._A = A
         self._b = b
-        self._debug_file = debug_file
-        self._iteration = 0
+        
 
     def _isoptimal(self):
         """
@@ -56,9 +58,10 @@ class Simplex:
                 debug_file.write(f'The Problem is not bounded, it always can improve\n')
             raise Exception("The Problem is not bounded, it always can improve")
         
+
     def _get_theta(self):
         """
-        Method to get the step length to reach the SBF that includes i_N[q] variable
+        Method to get the step length to reach the BFS that includes i_N[q] variable
 
         Pre-conditions: some element of d_B must be negative
 
@@ -69,23 +72,24 @@ class Simplex:
         theta = float('inf'); p = None
         for i, d_i in enumerate(d_B):   
             if d_i < 0:
-                quocient =  -self._x_B[i] / d_i
-                if quocient == theta: #Regla de Blund
+                quotient =  -self._x_B[i] / d_i
+                if quotient == theta: #Regla de Blund
                     p = p if self._i_B[p] < self._i_B[i] else i
-                elif quocient < theta:
+                elif quotient < theta:
                     p = i
-                    theta = quocient
+                    theta = quotient
                 
         self._theta = theta
         self._p = p
 
+
     def _update_values(self):
         """
-        Method to make the necessary updates of resulting SBF
+        Method to make the necessary updates of resulting BFS
 
         Pre-conditions: entry variable and DBF associated are calculated, also step length and its correponding exit variable
         
-        Post-conditions: updates all variable related to a single SBF
+        Post-conditions: updates all variable related to a single BFS
         """
 
         self._B_inv = self._update_inverse()
@@ -107,7 +111,7 @@ class Simplex:
 
         Pre-conditions: basic's matrix inverse, DBF and entry variable declarated must be of the same and previous simplex iteration
 
-        Post-conditions: returns the inverse associated to the resulting SBF of the previous simplex iteration
+        Post-conditions: returns the inverse associated to the resulting BFS of the previous simplex iteration
         """
         
         E = np.eye(self._m)
@@ -120,24 +124,34 @@ class Simplex:
         E[:, self._p] = n_p
         return (E @ self._B_inv)
     
+    
     def _clean_phase1(self):
         """
         Method to assert that all basic variables are from the orginal problem in phase 1
         """
 
         return np.all(self._i_B < self._n - self._m)
+    
         
     def solve(self):
         """
+        Method to solve the optimization problem associated to c, A and b
+
+        Pre-conditions: problem data is already initialized and have the proper dimensions
+
+        Post-conditions: if the problem corresponds to phase1 returns the BFS found and the basic matrix inverse associated,
+                         so as to continue its updating; otherwise, returns the optimal solution, i.e. the basic variables and its value
         """
 
         #1. Find initial Basic Feasible Solution
-        if not self.__fase1:
-            self._i_B, self._B_inv = self._fase_1()
+        if not self._phase1:
+            self._i_B, self._B_inv = self._phase_1()
+
             with open(f"{self._debug_file}.txt", "a") as debug_file:
                 debug_file.write('Fase II \n')
             self._B = self._A[:,self._i_B]
             self._i_N = sorted(np.setdiff1d(np.arange(self._n), self._i_B))
+
         else:    
             self._i_N, self._i_B = np.arange(0 , self._n - self._m), np.arange(self._n - self._m, self._n)
             self._B = self._B_inv = np.eye(self._m)
@@ -147,7 +161,6 @@ class Simplex:
         self._x_B = self._B_inv @ b; self._x_N = np.zeros(self._n - self._m, dtype=int)
 
         self._z = self._c_B @ self._x_B
-            
             
         #2. BFS optimal or choose entry variable q and continue  
         while not self._isoptimal():
@@ -160,10 +173,9 @@ class Simplex:
             self._iteration +=1
             
             with open(f"{self._debug_file}.txt", "a") as debug_file:
-                debug_file.write(f'Iteració {self._iteration}: p = {self._p}, q = {self._q}, B(p) = {self._i_B[self._p]}, theta* = {np.round(self._theta, 4)}, z = {np.round(self._z, 4)} \n')
+                debug_file.write(f'Iteration {self._iteration}: p = {self._p}, q = {self._q}, B(p) = {self._i_B[self._p]}, theta* = {np.round(self._theta, 4)}, z = {np.round(self._z, 4)} \n')
 
-        if self.__fase1:
-
+        if self._phase1:
             if np.isclose(self._z, 0, atol=1e-10):
                 while self._isoptimal() and not self._clean_phase1():
                     candidates = np.where(self._r == 0)[0]
@@ -172,42 +184,48 @@ class Simplex:
                     self._get_theta()
                     self._update_values()
                     self._iteration +=1
+
                 with open(f"{self._debug_file}.txt", "a") as debug_file:
-                    debug_file.write(f'Iteració {self._iteration}: p = {self._p}, q = {self._q}, B(p) = {self._i_B[self._p]}, theta* = {np.round(self._theta, 4)}, z = {np.round(self._z, 4)} \n')
+                    debug_file.write(f'Iteration {self._iteration}: p = {self._p}, q = {self._q}, B(p) = {self._i_B[self._p]}, theta* = {np.round(self._theta, 4)}, z = {np.round(self._z, 4)} \n')
                 with open(f"{self._debug_file}.txt", "a") as debug_file:
-                    debug_file.write(f'Solució bàsica factible trobada, iteració {self._iteration} \n')
+                    debug_file.write(f'Basic feasible solution found, iteration {self._iteration} \n')
+
                 return self._i_B, self._B_inv
             
-            #artificial variables take value at optimal
             with open(f"{self._debug_file}.txt", "a") as debug_file:
                     debug_file.write('The problem is not feasible, artificial variables take value at optimal\n')
             raise Exception(f'The problem is not feasible')
         
         with open(f"{self._debug_file}.txt", "a") as debug_file:
-                    debug_file.write(f'Solució òptima trobada, iteració {self._iteration}, z = {self._z} \n')
-                    debug_file.write('Fi simplex primal \n\n')
-                    debug_file.write('Solució òptima: \n\n')
+                    debug_file.write(f'Optimal solution found, iteration {self._iteration}, z = {self._z} \n')
+                    debug_file.write('End of primal simplex\n\n')
+                    debug_file.write('Optimal solution: \n\n')
                     debug_file.write(f'vb = {self._i_B} \n')
                     debug_file.write(f'xb = {np.round(self._x_B, 3)} \n')
                     debug_file.write(f'z = {self._z} \n')
                     debug_file.write(f'r = {np.round(self._r, 2)}')
 
-    def _fase_1(self):
+        return self._i_B, np.round(self._x_B, 3)
+    
+
+    def _phase_1(self):
+        """
+        Method to prepare data to phase 1 and solve the resulting linear problem
+        """
 
         with open(f"{self._debug_file}.txt", 'w') as file:
             pass #cleaning the file
         with open(f"{self._debug_file}.txt", "a") as debug_file:
-
-            debug_file.write('Inici simplex primal amb regla de Bland \n')
-            debug_file.write('Fase I\n')
+            debug_file.write("Start primal simplex with Bland's rule\n")
+            debug_file.write('Phase I\n')
 
         c = np.append(np.zeros(self._n, dtype=int), np.ones(self._m, dtype=int))
         identity_matrix = np.eye(self._m)
         A = np.hstack((self._A, identity_matrix))
         b = self._b
         
-        fase1 =  Simplex(c, A, b, fase1 = True, debug_file = self._debug_file)
-        i_b, B_inv = fase1.solve()
+        phase1 =  Simplex(c, A, b, phase1 = True, debug_file = self._debug_file)
+        i_b, B_inv = phase1.solve()
         return i_b, B_inv
         
 c, A, b = parse('Datos/Datos5_1.txt')
