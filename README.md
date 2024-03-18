@@ -82,9 +82,11 @@ i_B, x_B = sim.solve()
 
     .
     ├── Datos                 # Problem data examples
+    ├── Debug_Datos           # Problem data examples solved
     ├── images                # Project Logo
     ├── Parser.py             # File with function to read linear problem data into numpy arrays
     ├── Simplex.py            # MAIN file, with Simplex solver class
+    ├── example.py            # Use-case example
     └── README.md
 
 <p align="right">(<a href="#repo-structures">back to top</a>)</p>
