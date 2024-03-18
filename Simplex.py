@@ -146,7 +146,7 @@ class Simplex:
             self._i_B, self._B_inv = self._phase_1()
 
             with open(f"{self._debug_file}.txt", "a") as debug_file:
-                debug_file.write('Fase II \n')
+                debug_file.write('Phase II \n')
             self._B = self._A[:,self._i_B]
             self._i_N = sorted(np.setdiff1d(np.arange(self._n), self._i_B))
 
@@ -183,8 +183,8 @@ class Simplex:
                     self._update_values()
                     self._iteration +=1
 
-                with open(f"{self._debug_file}.txt", "a") as debug_file:
-                    debug_file.write(f'Iteration {self._iteration}: p = {self._p}, q = {self._q}, B(p) = {self._i_B[self._p]}, theta* = {np.round(self._theta, 4)}, z = {np.round(self._z, 4)} \n')
+                    with open(f"{self._debug_file}.txt", "a") as debug_file:
+                        debug_file.write(f'Iteration {self._iteration}: p = {self._p}, q = {self._q}, B(p) = {self._i_B[self._p]}, theta* = {np.round(self._theta, 4)}, z = {np.round(self._z, 4)} \n')
                 with open(f"{self._debug_file}.txt", "a") as debug_file:
                     debug_file.write(f'Basic feasible solution found, iteration {self._iteration} \n')
 

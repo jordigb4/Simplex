@@ -20,9 +20,8 @@ Iteration 17: p = 7, q = 3, B(p) = 11, theta* = 0.6072, z = 229.786
 Iteration 18: p = 6, q = 0, B(p) = 0, theta* = 0.8504, z = 164.7824 
 Iteration 19: p = 9, q = 1, B(p) = 4, theta* = 1.1223, z = 154.7089 
 Iteration 20: p = 4, q = 1, B(p) = 5, theta* = 0.769, z = -0.0 
-Iteration 20: p = 4, q = 1, B(p) = 5, theta* = 0.769, z = -0.0 
 Basic feasible solution found, iteration 20 
-Fase II 
+Phase II 
 Iteration 1: p = 5, q = 2, B(p) = 12, theta* = 0.1661, z = -288.0729 
 Iteration 2: p = 1, q = 3, B(p) = 13, theta* = 0.8602, z = -430.3936 
 Iteration 3: p = 4, q = 5, B(p) = 15, theta* = 146.8548, z = -499.7322 
