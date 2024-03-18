@@ -1,0 +1,16 @@
+Start primal simplex with Bland's rule
+Phase I
+Iteration 1: p = 8, q = 0, B(p) = 0, theta* = 0.0563, z = 1276.6761 
+Iteration 2: p = 8, q = 0, B(p) = 1, theta* = 0.0556, z = 1266.4444 
+Iteration 3: p = 9, q = 1, B(p) = 2, theta* = 0.8, z = 1139.0667 
+Iteration 4: p = 8, q = 5, B(p) = 7, theta* = 0.0473, z = 1136.1339 
+Iteration 5: p = 9, q = 7, B(p) = 9, theta* = 1.2778, z = 1093.6536 
+Iteration 6: p = 4, q = 12, B(p) = 14, theta* = 185.8301, z = 907.8235 
+Iteration 7: p = 6, q = 13, B(p) = 16, theta* = 177.7647, z = 730.0588 
+Iteration 8: p = 8, q = 6, B(p) = 6, theta* = 0.0667, z = 727.3333 
+Iteration 9: p = 7, q = 13, B(p) = 17, theta* = 31.9037, z = 695.4296 
+Iteration 10: p = 8, q = 6, B(p) = 7, theta* = 0.0784, z = 694.2614 
+Iteration 11: p = 5, q = 13, B(p) = 18, theta* = 4.0, z = 682.0 
+Iteration 12: p = 8, q = 5, B(p) = 5, theta* = 0.0, z = 682.0 
+Iteration 13: p = 8, q = 9, B(p) = 11, theta* = 0.0, z = 682.0 
+The problem is not feasible, artificial variables take value at optimal

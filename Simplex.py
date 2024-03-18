@@ -156,7 +156,7 @@ class Simplex:
 
         self._c_B, self._c_N = self._c[self._i_B], self._c[self._i_N]
         self._A_N  = self._A[:,self._i_N]
-        self._x_B = self._B_inv @ b; self._x_N = np.zeros(self._n - self._m, dtype=int)
+        self._x_B = self._B_inv @ self._b; self._x_N = np.zeros(self._n - self._m, dtype=int)
 
         self._z = self._c_B @ self._x_B
             

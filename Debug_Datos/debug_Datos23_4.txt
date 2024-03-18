@@ -1,0 +1,42 @@
+Start primal simplex with Bland's rule
+Phase I
+Iteration 1: p = 3, q = 0, B(p) = 0, theta* = 7.5714, z = 3617.0 
+Iteration 2: p = 5, q = 0, B(p) = 1, theta* = 4.1195, z = 2862.7631 
+Iteration 3: p = 2, q = 0, B(p) = 2, theta* = 1.7229, z = 2227.7595 
+Iteration 4: p = 1, q = 0, B(p) = 3, theta* = 2.8916, z = 1149.28 
+Iteration 5: p = 4, q = 0, B(p) = 4, theta* = 4.2088, z = 502.2688 
+Iteration 6: p = 8, q = 0, B(p) = 5, theta* = 0.3006, z = 445.1033 
+Iteration 7: p = 9, q = 1, B(p) = 7, theta* = 0.5078, z = 351.4147 
+Iteration 8: p = 0, q = 0, B(p) = 6, theta* = 1.6197, z = 254.7853 
+Iteration 9: p = 6, q = 0, B(p) = 8, theta* = 0.4704, z = 104.1207 
+Iteration 10: p = 7, q = 0, B(p) = 9, theta* = 0.1475, z = -0.0 
+Iteration 10: p = 7, q = 0, B(p) = 9, theta* = 0.1475, z = -0.0 
+Basic feasible solution found, iteration 10 
+Fase II 
+Iteration 1: p = 6, q = 0, B(p) = 10, theta* = 1.0966, z = -737.6521 
+Iteration 2: p = 6, q = 1, B(p) = 11, theta* = 0.8185, z = -806.2278 
+Iteration 3: p = 2, q = 2, B(p) = 12, theta* = 2.2747, z = -846.0562 
+Iteration 4: p = 8, q = 3, B(p) = 13, theta* = 0.74, z = -909.2216 
+Iteration 5: p = 2, q = 2, B(p) = 8, theta* = 0.8684, z = -923.9346 
+Iteration 6: p = 4, q = 4, B(p) = 14, theta* = 71.027, z = -942.6385 
+Iteration 7: p = 5, q = 6, B(p) = 16, theta* = 125.0284, z = -1052.0335 
+Iteration 8: p = 2, q = 1, B(p) = 2, theta* = 1.1627, z = -1109.0666 
+Iteration 9: p = 7, q = 6, B(p) = 15, theta* = 54.0992, z = -1184.2959 
+Iteration 10: p = 0, q = 3, B(p) = 8, theta* = 0.4447, z = -1187.906 
+Iteration 11: p = 2, q = 7, B(p) = 17, theta* = 42.0484, z = -1225.6153 
+Iteration 12: p = 0, q = 4, B(p) = 6, theta* = 0.3618, z = -1242.0215 
+Iteration 13: p = 9, q = 9, B(p) = 19, theta* = 101.0562, z = -1334.3487 
+Iteration 14: p = 7, q = 1, B(p) = 2, theta* = 1.367, z = -1391.7315 
+Iteration 15: p = 8, q = 0, B(p) = 1, theta* = 0.1209, z = -1404.151 
+Iteration 16: p = 8, q = 3, B(p) = 8, theta* = 0.2413, z = -1407.7238 
+Iteration 17: p = 0, q = 8, B(p) = 15, theta* = 24.1868, z = -1414.0936 
+Iteration 18: p = 1, q = 9, B(p) = 18, theta* = 285.141, z = -1421.4035 
+Iteration 19: p = 6, q = 10, B(p) = 20, theta* = 18.5738, z = -1429.5637 
+Iteration 20: p = 7, q = 1, B(p) = 3, theta* = 0.5072, z = -1612.7693 
+Iteration 21: p = 7, q = 12, B(p) = 22, theta* = 25.332, z = -1634.8253 
+Iteration 22: p = 0, q = 9, B(p) = 11, theta* = 7.8074, z = -1710.0189 
+Iteration 23: p = 8, q = 12, B(p) = 21, theta* = 1584.5946, z = -2299.2432 
+Iteration 24: p = 3, q = 4, B(p) = 5, theta* = 3.4987, z = -2462.0422 
+Iteration 25: p = 3, q = 8, B(p) = 9, theta* = 3.7994, z = -2858.957 
+Iteration 26: p = 3, q = 12, B(p) = 15, theta* = 331.5, z = -4231.5 
+The Problem is not bounded, it always can improve

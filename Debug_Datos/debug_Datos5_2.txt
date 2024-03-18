@@ -1,0 +1,46 @@
+Start primal simplex with Bland's rule
+Phase I
+Iteration 1: p = 8, q = 1, B(p) = 1, theta* = 0.5676, z = 1865.0541 
+Iteration 2: p = 0, q = 0, B(p) = 0, theta* = 0.3998, z = 1571.8482 
+Iteration 3: p = 2, q = 0, B(p) = 2, theta* = 0.3363, z = 1420.418 
+Iteration 4: p = 2, q = 0, B(p) = 3, theta* = 0.3435, z = 1354.1592 
+Iteration 5: p = 5, q = 2, B(p) = 5, theta* = 0.5662, z = 1204.8913 
+Iteration 6: p = 9, q = 1, B(p) = 4, theta* = 0.3007, z = 1186.3568 
+Iteration 7: p = 8, q = 0, B(p) = 2, theta* = 0.3219, z = 1174.3391 
+Iteration 8: p = 3, q = 1, B(p) = 6, theta* = 0.1327, z = 1149.9755 
+Iteration 9: p = 4, q = 1, B(p) = 7, theta* = 1.6529, z = 862.315 
+Iteration 10: p = 7, q = 0, B(p) = 1, theta* = 1.2888, z = 707.0867 
+Iteration 11: p = 6, q = 0, B(p) = 8, theta* = 1.2808, z = 474.4383 
+Iteration 12: p = 7, q = 0, B(p) = 9, theta* = 0.1145, z = 461.8696 
+Iteration 13: p = 3, q = 1, B(p) = 10, theta* = 2.6376, z = 143.8394 
+Iteration 14: p = 2, q = 2, B(p) = 11, theta* = 0.2471, z = 44.9828 
+Iteration 15: p = 1, q = 2, B(p) = 6, theta* = 0.595, z = -0.0 
+Iteration 15: p = 1, q = 2, B(p) = 6, theta* = 0.595, z = -0.0 
+Basic feasible solution found, iteration 15 
+Fase II 
+Iteration 1: p = 6, q = 1, B(p) = 3, theta* = 0.11, z = 73.8632 
+Iteration 2: p = 0, q = 2, B(p) = 12, theta* = 0.6208, z = 9.9958 
+Iteration 3: p = 3, q = 3, B(p) = 13, theta* = 0.359, z = -27.4536 
+Iteration 4: p = 6, q = 6, B(p) = 16, theta* = 106.3801, z = -52.4082 
+Iteration 5: p = 0, q = 7, B(p) = 17, theta* = 7.4641, z = -58.5341 
+Iteration 6: p = 6, q = 2, B(p) = 3, theta* = 0.2854, z = -122.2781 
+Iteration 7: p = 4, q = 2, B(p) = 8, theta* = 1.132, z = -285.3858 
+Iteration 8: p = 6, q = 1, B(p) = 1, theta* = 0.3511, z = -296.4562 
+Iteration 9: p = 6, q = 3, B(p) = 10, theta* = 0.2015, z = -313.3263 
+Iteration 10: p = 7, q = 4, B(p) = 12, theta* = 0.2037, z = -358.9074 
+Iteration 11: p = 6, q = 8, B(p) = 18, theta* = 200.672, z = -396.6825 
+Iteration 12: p = 7, q = 9, B(p) = 19, theta* = 260.6254, z = -600.9545 
+Iteration 13: p = 1, q = 2, B(p) = 3, theta* = 0.0127, z = -601.503 
+Iteration 14: p = 1, q = 3, B(p) = 7, theta* = 0.0221, z = -604.1124 
+Iteration 15: p = 1, q = 8, B(p) = 15, theta* = 1.9944, z = -605.7771 
+Iteration 16: p = 8, q = 5, B(p) = 9, theta* = 0.4162, z = -651.3433 
+Optimal solution found, iteration 16, z = -651.3432747688222 
+End of primal simplex
+
+Optimal solution: 
+
+vb = [17 15 11 13  8  5 18 19  9  4] 
+xb = [7.91592e+02 6.12470e+01 3.95600e+00 1.57700e+00 2.14400e+00 2.68800e+00
+ 1.15333e+02 3.90068e+02 4.16000e-01 2.81800e+00] 
+z = -651.3432747688222 
+r = [207.32  99.87 103.26 194.65 165.2   20.76 129.78  36.3    0.7    0.5 ]

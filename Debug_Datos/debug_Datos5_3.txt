@@ -1,0 +1,26 @@
+Start primal simplex with Bland's rule
+Phase I
+Iteration 1: p = 7, q = 1, B(p) = 1, theta* = 0.7536, z = 1417.942 
+Iteration 2: p = 9, q = 1, B(p) = 2, theta* = 0.6358, z = 1189.6915 
+Iteration 3: p = 8, q = 1, B(p) = 3, theta* = 0.056, z = 1172.102 
+Iteration 4: p = 7, q = 1, B(p) = 4, theta* = 0.7697, z = 1139.4979 
+Iteration 5: p = 0, q = 4, B(p) = 7, theta* = 0.3235, z = 1133.2621 
+Iteration 6: p = 8, q = 3, B(p) = 6, theta* = 0.0033, z = 1133.0974 
+Iteration 7: p = 7, q = 4, B(p) = 8, theta* = 0.8523, z = 998.6249 
+Iteration 8: p = 8, q = 0, B(p) = 0, theta* = 0.0842, z = 998.0277 
+Iteration 9: p = 0, q = 1, B(p) = 3, theta* = 0.0208, z = 997.8683 
+Iteration 10: p = 0, q = 5, B(p) = 9, theta* = 0.0363, z = 993.7757 
+Iteration 11: p = 8, q = 4, B(p) = 6, theta* = 0.0982, z = 990.2647 
+Iteration 12: p = 8, q = 8, B(p) = 12, theta* = 0.0915, z = 985.4976 
+Iteration 13: p = 8, q = 9, B(p) = 13, theta* = 0.0772, z = 983.7 
+Iteration 14: p = 4, q = 10, B(p) = 14, theta* = 281.9113, z = 701.7887 
+Iteration 15: p = 8, q = 9, B(p) = 12, theta* = 0.0915, z = 700.8269 
+Iteration 16: p = 5, q = 10, B(p) = 15, theta* = 323.4877, z = 377.3393 
+Iteration 17: p = 8, q = 0, B(p) = 0, theta* = 0.0708, z = 364.2173 
+Iteration 18: p = 8, q = 9, B(p) = 13, theta* = 0.0772, z = 360.3842 
+Iteration 19: p = 0, q = 7, B(p) = 10, theta* = 0.1053, z = 359.0092 
+Iteration 20: p = 6, q = 10, B(p) = 16, theta* = 46.7446, z = 312.2647 
+Iteration 21: p = 0, q = 2, B(p) = 3, theta* = 0.0446, z = 304.0085 
+Iteration 22: p = 0, q = 10, B(p) = 17, theta* = 6.7149, z = 303.7583 
+Iteration 23: p = 0, q = 11, B(p) = 18, theta* = 4.9796, z = 303.6269 
+The problem is not feasible, artificial variables take value at optimal
