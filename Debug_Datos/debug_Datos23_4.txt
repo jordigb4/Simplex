@@ -39,3 +39,4 @@ Iteration 24: p = 3, q = 4, B(p) = 5, theta* = 3.4987, z = -2462.0422
 Iteration 25: p = 3, q = 8, B(p) = 9, theta* = 3.7994, z = -2858.957 
 Iteration 26: p = 3, q = 12, B(p) = 15, theta* = 331.5, z = -4231.5 
 The Problem is not bounded, it always can improve
+

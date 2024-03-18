@@ -14,3 +14,5 @@ Iteration 11: p = 5, q = 13, B(p) = 18, theta* = 4.0, z = 682.0
 Iteration 12: p = 8, q = 5, B(p) = 5, theta* = 0.0, z = 682.0 
 Iteration 13: p = 8, q = 9, B(p) = 11, theta* = 0.0, z = 682.0 
 The problem is not feasible, artificial variables take value at optimal
+
+
